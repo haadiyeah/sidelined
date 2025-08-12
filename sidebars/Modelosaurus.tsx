@@ -172,11 +172,11 @@ const Sidebar = ({ children }) => {
           }`}
       >
         {/** Background Blobs */}
-        <div className="blob opacity-25" style={{ bottom: '-6%', right: '0%' }}></div>
+        {/* <div className="blob opacity-25" style={{ bottom: '-6%', right: '0%' }}></div>
         <div className="blob opacity-25" style={{ bottom: '10%', right: '-5%' }}></div>
         <div className="blob opacity-25" style={{ bottom: '10%', right: '20%' }}></div>
         <div className="blob opacity-10" style={{ bottom: '90%', right: '80%' }}></div>
-        <div className="blob opacity-10" style={{ bottom: '80%', right: '85%' }}></div>
+        <div className="blob opacity-10" style={{ bottom: '80%', right: '85%' }}></div> */}
         {children}
       </div>
     </div>

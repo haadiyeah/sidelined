@@ -12,17 +12,6 @@ An open-source project offering:
 - Integration: Simple npm package OR copy-paste components
 - Theming: DaisyUI theme generation for consistent app-wide styling
 
-## Current Project State
-```
-root/
-├── sidebars/          # Raw .tsx files from various projects (not templated)
-├── templates/         # Future: templated, configurable versions
-├── daisyui-docs/      # DaisyUI configuration references
-└── tasks/            # Todo lists and progress tracking
-```
-
-## NOTE
-The sidebars are not customizable right now, I have picked them up from my various frontend projects, so they are tailored to specific scenarios, But i like their design so thats the basis of selection.
 
 # USER FLOWS 
 There are two Integration possibilities with sidelined.
@@ -42,7 +31,7 @@ Another option should be for users to install as an npm package. Benefits: Minim
 5. users get embeddable chunk of code: 
 ```javascript
 // NPM package that accepts local config
-import { TechnoSidebar } from 'sidelined';
+import { TechnoSidebar } from 'sidelined'; //example. not actual sidebar
 
 const sidebarConfig = {
 
@@ -83,7 +72,7 @@ Usage of this theme will be optional, incase someeone doesnt want to use daisy, 
 For this important aspect of the project, please ensure that you analyze the daisyui-docs folder provided.
 
 # Sidebars for Sidelined
-This file contains the details for the inteded sidebar themes and possible layouts.
+this section contains the details for the inteded sidebar themes and possible layouts.
 
 ## Sidebars
 Sidebars are a distinct base combination of:
