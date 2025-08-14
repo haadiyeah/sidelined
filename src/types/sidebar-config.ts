@@ -144,6 +144,7 @@ export interface SidebarConfig {
   // Core configuration
   id: string;
   name: string;
+  description: string;
   layout: SidebarLayout;
   
   // Navigation (integrates routing solution)

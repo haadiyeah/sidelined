@@ -2,9 +2,30 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 
+
+/**
+ * 
+ * 
+ * color scheme for this one (Default)
+ *   nstp: { //nstp color pallette
+          'primary': '#87b37a',     //sage green
+          'secondary': '#4c6663',  //bluish gray 
+          'accent': '#2a1e5c',      //dark purple
+          'neutral': '#fbf5f3',    //dark brown
+          'base-100': '#ffffff',    //white
+          'info': '#9ce37d',        //bright light green     
+          'warning': '#ff5722',     //default (not part of nstp color pallette)
+          'fontFamily': 'Lato, sans-serif',
+        },
+ * 
+ */
+
 const TooltipPortal = ({ children, target }) => {
   return ReactDOM.createPortal(children, target);
 };
+
+
+
 
 const SidebarItem = ({
   icon,

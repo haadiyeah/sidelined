@@ -34,6 +34,17 @@ const ConfiguratorStepOne = () => {
       setSelectedTheme(theme);
       setError(null);
       
+      // Scroll to preview section
+      setTimeout(() => {
+        const previewElement = document.querySelector('[data-preview-section]');
+        if (previewElement) {
+          previewElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center'
+          });
+        }
+      }, 100);
+      
       // Announce selection to screen readers
       const announcement = document.createElement('div');
       announcement.setAttribute('aria-live', 'polite');
@@ -230,6 +241,7 @@ const ConfiguratorStepOne = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               className="bg-base-200 rounded-2xl p-6"
+              data-preview-section
             >
               <div className="flex items-center gap-3 mb-4">
                 <Check className="w-5 h-5 text-success" />

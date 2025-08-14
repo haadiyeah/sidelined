@@ -26,6 +26,17 @@ import logo from "../assets/logo.png";
 |   <YourPageContent />
 | </Sidebar>
 | Roles: admin, user, device, test (Can be changed/configured.)
+
+     blackgate: {
+          "primary": "#0068ff",
+          "secondary": "#0040ff",
+          "accent": "#AE4AFF",
+          "neutral": "#FFFFFF",
+          "base-100": "#ffffff",
+          "base-200": "#F4F4F4",
+          "base-300": "#F3F3F3",
+        },
+        
 |--------------------------------------------------
 */
 

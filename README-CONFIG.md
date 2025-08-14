@@ -451,6 +451,7 @@ Sidelined includes several predefined configurations based on existing sidebar d
 2. **Corporate**: Professional, role-based corporate sidebar  
 3. **Sakura**: Educational platform sidebar with pastel theme
 4. **ERP**: Complex role-based system with tooltips
+5. **Dynamo**: Modern, dynamic, balanced design for general use
 
 ### Using Presets
 
@@ -459,7 +460,8 @@ import {
   modelosaurusConfig, 
   corporateConfig, 
   sakuraConfig, 
-  erpConfig 
+  erpConfig,
+  dynamoConfig 
 } from './presets/sidebar-presets';
 
 // Use preset as-is
@@ -691,6 +693,31 @@ const customConfig = {
 <Sidebar config={customConfig}>{children}</Sidebar>
 ```
 
+#### Using the New Dynamo Sidebar
+
+```typescript
+import DynamoSidebar from './sidebars/Dynamo';
+import { dynamoConfig } from './presets/sidebar-presets';
+
+// Use with default configuration
+<DynamoSidebar config={dynamoConfig}>{children}</DynamoSidebar>
+
+// Or customize the configuration
+const customDynamoConfig = {
+  ...dynamoConfig,
+  theme: {
+    ...dynamoConfig.theme,
+    colors: {
+      ...dynamoConfig.theme.colors,
+      primary: '#10b981', // Custom green primary
+      secondary: '#3b82f6', // Custom blue secondary
+    },
+  },
+};
+
+<DynamoSidebar config={customDynamoConfig}>{children}</DynamoSidebar>
+```
+
 ### From Other Sidebar Libraries
 
 1. **Map your current configuration** to the Sidelined format
@@ -749,3 +776,7 @@ const config = {
 ```
 
 This documentation covers the complete Sidelined configuration system. For specific implementation details, refer to the TypeScript interfaces and example configurations in the codebase.
+
+
+
+

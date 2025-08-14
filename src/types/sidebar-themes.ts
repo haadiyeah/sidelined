@@ -1,3 +1,5 @@
+import type { SidebarConfig } from './sidebar-config';
+
 export interface SidebarTheme {
   id: string;
   name: string;
@@ -9,7 +11,9 @@ export interface SidebarTheme {
     backgroundColor: string;
     textColor: string;
   };
-  component: React.ComponentType<{ children?: React.ReactNode }> | null;
+  config: SidebarConfig;
+  imageUrl?: string; // Promotional image for the sidebar
+  component?: React.ComponentType<{ children?: React.ReactNode }> | null;
 }
 
 export interface SidebarPreviewData {

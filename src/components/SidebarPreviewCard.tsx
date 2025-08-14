@@ -51,43 +51,67 @@ const SidebarPreviewCard = ({ theme, isSelected, onClick, index }: SidebarPrevie
           </motion.div>
         )}
 
-        {/* Mini Sidebar Preview */}
-        <div className="h-32 mb-4 rounded-lg overflow-hidden relative" aria-hidden="true">
-          <div 
-            className="h-full w-12 rounded-lg flex flex-col gap-2 p-2"
-            style={{ backgroundColor: theme.preview.backgroundColor }}
-          >
-            {/* Logo area */}
-            <div className="w-8 h-6 bg-current opacity-20 rounded" style={{ color: theme.preview.textColor }} />
-            
-            {/* Menu items */}
-            <div className="flex-1 space-y-1.5">
-              {[1, 2, 3, 4].map((item) => (
-                <div 
-                  key={item}
-                  className={`w-full h-2 rounded-sm transition-colors ${
-                    item === 1 
-                      ? 'bg-current opacity-90' 
-                      : 'bg-current opacity-40'
-                  }`}
-                  style={{ 
-                    color: item === 1 ? theme.preview.primaryColor : theme.preview.textColor 
-                  }}
-                />
-              ))}
+        {/* Sidebar Preview Image */}
+        <div className="h-32 mb-4 rounded-lg overflow-hidden relative bg-base-300" aria-hidden="true">
+          {theme.imageUrl ? (
+            <img 
+              src={theme.imageUrl} 
+              alt={`${theme.name} sidebar preview`}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                // Fallback to mini preview if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                target.parentElement!.innerHTML = `
+                  <div class="h-full w-12 rounded-lg flex flex-col gap-2 p-2" style="background-color: ${theme.preview.backgroundColor}">
+                    <div class="w-8 h-6 bg-current opacity-20 rounded" style="color: ${theme.preview.textColor}"></div>
+                    <div class="flex-1 space-y-1.5">
+                      ${[1, 2, 3, 4].map(item => 
+                        `<div class="w-full h-2 rounded-sm transition-colors ${item === 1 ? 'bg-current opacity-90' : 'bg-current opacity-40'}" style="color: ${item === 1 ? theme.preview.primaryColor : theme.preview.textColor}"></div>`
+                      ).join('')}
+                    </div>
+                    <div class="w-6 h-6 bg-current opacity-30 rounded-full mx-auto" style="color: ${theme.preview.textColor}"></div>
+                  </div>
+                `;
+              }}
+            />
+          ) : (
+            // Fallback mini preview
+            <div 
+              className="h-full w-12 rounded-lg flex flex-col gap-2 p-2"
+              style={{ backgroundColor: theme.preview.backgroundColor }}
+            >
+              {/* Logo area */}
+              <div className="w-8 h-6 bg-current opacity-20 rounded" style={{ color: theme.preview.textColor }} />
+              
+              {/* Menu items */}
+              <div className="flex-1 space-y-1.5">
+                {[1, 2, 3, 4].map((item) => (
+                  <div 
+                    key={item}
+                    className={`w-full h-2 rounded-sm transition-colors ${
+                      item === 1 
+                        ? 'bg-current opacity-90' 
+                        : 'bg-current opacity-40'
+                    }`}
+                    style={{ 
+                      color: item === 1 ? theme.preview.primaryColor : theme.preview.textColor 
+                    }}
+                  />
+                ))}
+              </div>
+              
+              {/* User area */}
+              <div className="w-6 h-6 bg-current opacity-30 rounded-full mx-auto" style={{ color: theme.preview.textColor }} />
             </div>
-            
-            {/* User area */}
-            <div className="w-6 h-6 bg-current opacity-30 rounded-full mx-auto" style={{ color: theme.preview.textColor }} />
-          </div>
+          )}
           
-          {/* Gradient overlay for depth */}
-          <div 
-            className="absolute inset-0 rounded-lg opacity-10"
-            style={{ 
-              background: `linear-gradient(135deg, ${theme.preview.primaryColor}, ${theme.preview.secondaryColor})` 
-            }}
-          />
+          {/* Promotional badge for new Dynamo sidebar */}
+          {theme.id === 'dynamo' && (
+            <div className="absolute top-2 right-2 bg-success text-success-content text-xs px-2 py-1 rounded-full font-medium">
+              New!
+            </div>
+          )}
         </div>
 
         {/* Theme Info */}

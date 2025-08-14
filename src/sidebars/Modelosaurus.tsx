@@ -19,6 +19,27 @@ import { useNavigate } from 'react-router-dom';
 |   <YourPageContent />
 | </Sidebar>
 | Ideal for tech platforms and applications.
+
+COLOR PALLETTE USED IN THIS PROJ:
+
+daisyui: {
+    themes: [
+      {
+        modelosaurus: {
+          'primary':'#683895',
+          'secondary': '#07ABBD',
+          'accent': '#393D5E',
+          'neutral': '#002D68',
+          'base-100': '#1D203E',
+          'info': '#7976E8',
+          'success': '#55924C',
+          'warning': '#B3A443',
+          'error': '#8A302A',
+          'fontFamily': 'Montserrat, sans-serif',
+        }
+      }
+    ]
+  }
 |--------------------------------------------------
 */
 
