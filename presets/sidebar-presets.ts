@@ -1,13 +1,12 @@
-import {
+import type {
   SidebarConfig,
   ModelosaurusConfig,
   CorporateConfig,
   SakuraConfig,
   ERPConfig,
-} from '../types/sidebar-config';
-import { SidebarNavigationItem } from '../types/navigation';
+} from '../src/types/sidebar-config';
+import type { SidebarNavigationItem } from '../src/types/navigation';
 import { themePresets } from './theme-presets';
-import { detectNavigationStrategy } from '../utils/routing';
 
 /**
  * Default navigation items for different sidebar types
@@ -94,7 +93,6 @@ export const modelosaurusConfig: ModelosaurusConfig = {
   theme: themePresets.modelosaurus,
   navigation: {
     strategy: 'react-router',
-    autoDetect: true,
     items: modelosaurusNavItems,
   },
   icons: {
@@ -137,7 +135,6 @@ export const corporateConfig: CorporateConfig = {
   theme: themePresets.corporate,
   navigation: {
     strategy: 'react-router',
-    autoDetect: true,
     items: corporateNavItems,
   },
   icons: {
@@ -180,7 +177,6 @@ export const sakuraConfig: SakuraConfig = {
   theme: themePresets.sakura,
   navigation: {
     strategy: 'react-router',
-    autoDetect: true,
     items: sakuraNavItems,
   },
   icons: {
@@ -214,7 +210,6 @@ export const erpConfig: ERPConfig = {
   theme: themePresets.erp,
   navigation: {
     strategy: 'react-router',
-    autoDetect: true,
     items: erpNavItems,
   },
   icons: {

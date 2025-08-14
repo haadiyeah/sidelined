@@ -1,4 +1,4 @@
-import { ThemeConfig } from '../types/sidebar-config';
+import type { ThemeConfig } from '../src/types/sidebar-config';
 
 /**
  * Predefined theme presets based on existing sidebar designs

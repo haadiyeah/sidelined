@@ -85,11 +85,12 @@ Sidebars are a distinct base combination of:
 
 For each sidebar,  the colors shall be a base/starting which can be customized (incase someone likes everything about the sidebar except the color scheme, or incase they want to adjust it according to company colors.)
 
-### Sidebars BASED OFF EXISTING components in /sidebars:
+### Sidebars BASED OFF EXISTING components in /src/sidebars:
 modelosaurus (gradients, dark, sleek and modern) (CLASSIC LAYOUT),
 corporate (light, modern, simple, role based access) (CENTERED LAYOUT), 
 sakura (pink, girly) (CENTERED LAYOUT), 
 ERP (for complex role based systems, tooltips, fast navigation, role based access support.) (CENTERED LAYOUT),
+**Please note** As a frontend developer, i made these sidebars for other projects. for now, i copy pasted them out of different projects as it is into /src/sidebars. They need to be edited and refined to be modular and reusable.
 
 ### NEW sidebars (ideas) TO ADD LATER:
 lunara (dark with subtle grid pattern, speckled white, and contrasting bright neon highlights)

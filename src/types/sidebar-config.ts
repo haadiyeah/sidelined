@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 // Base navigation strategy from routing solution
 export type NavigationStrategy = 'react-router' | 'next' | 'custom' | 'href';

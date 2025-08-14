@@ -10,14 +10,14 @@ import {
   useSimpleNavigation, 
   useRouterDetection,
   detectNavigationStrategy 
-} from '../hooks/useNavigation';
+} from '../src/hooks/useNavigation';
 import { 
   buildUrlPath, 
   isPathActive, 
   autoDetectNavigationConfig,
   routingLibraryDetection 
-} from '../utils/routing';
-import { NavigationConfig, SidebarNavigationItem } from '../types/navigation';
+} from '../src/utils/routing';
+import { NavigationConfig, SidebarNavigationItem } from '../src/types/navigation';
 
 // Mock external dependencies
 jest.mock('react-router-dom', () => ({

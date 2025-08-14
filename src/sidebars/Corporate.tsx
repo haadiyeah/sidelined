@@ -15,7 +15,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { connectorURL } from "../utils/readEnv";
+// import { connectorURL } from "../utils/readEnv";
 
 
 /**
@@ -29,7 +29,7 @@ import { connectorURL } from "../utils/readEnv";
 |--------------------------------------------------
 */
 
-const Sidebar = ({ role, children }) => {
+const Sidebar = ({ role, children }: { role: string; children: React.ReactNode }) => {
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(() => {
     const saved = localStorage.getItem('sidebarExpanded');
@@ -41,42 +41,46 @@ const Sidebar = ({ role, children }) => {
   }, [isExpanded]);
 
   const adminLinks = [
-    { name: "Dashboard", path: "/admin/dashboard", icon: <ChartArea /> },
+    { id: "dashboard", name: "Dashboard", path: "/admin/dashboard", icon: <ChartArea /> },
     {
+      id: "statistics",
       name: "Statistics",
       path: "/admin/grafana-dashboard",
       icon: <LucideDatabase />,
     },
-    { name: "Applications", path: "/admin/applications", icon: <Shapes /> },
-    { name: "Users", path: "/admin/users", icon: <Users /> },
-    { name: "Requests", path: "/admin/requests", icon: <Ticket /> },
-    { name: "Profile", path: "/admin/profile", icon: <User /> },
+    { id: "applications", name: "Applications", path: "/admin/applications", icon: <Shapes /> },
+    { id: "users", name: "Users", path: "/admin/users", icon: <Users /> },
+    { id: "requests", name: "Requests", path: "/admin/requests", icon: <Ticket /> },
+    { id: "profile", name: "Profile", path: "/admin/profile", icon: <User /> },
   ];
 
   const userLinks = [
     {
+      id: "dashboard",
       name: "Dashboard",
       path: "/user/grafana-dashboard",
       icon: <LucideDatabase />,
     },
-    { name: "Applications", path: "/user/dashboard", icon: <Home /> },
+    { id: "applications", name: "Applications", path: "/user/dashboard", icon: <Home /> },
     // { name: "Help", path: "/user/help", icon: <HelpCircle /> },
-    { name: "Profile", path: "/user/profile", icon: <User /> },
+    { id: "profile", name: "Profile", path: "/user/profile", icon: <User /> },
   ];
 
   const devicelinks = [
     {
+      id: "dashboard",
       name: "Dashboard",
       path: "/device/dashboard",
       icon: <LucideDatabase />,
     },
     // { name: "Applications", path: "/device/dashboard", icon: <Home /> },
     // { name: "Help", path: "/user/help", icon: <HelpCircle /> },
-    { name: "Profile", path: "/device/profile", icon: <User /> },
+    { id: "profile", name: "Profile", path: "/device/profile", icon: <User /> },
   ];
 
   const testlinks = [
     {
+      id: "dashboard",
       name: "Dashboard",
       path: "/test/home",
       icon: <LucideNotepadTextDashed />,
@@ -93,12 +97,20 @@ const Sidebar = ({ role, children }) => {
           : userLinks;
   const logoutPath = role === "admin" ? "/" : "/";
 
+  const isActive = (item: any) => {
+    return location.pathname === item.path;
+  };
+
+  const navigate = (item: any) => {
+    window.location.href = item.path;
+  };
+
   const handleLogout = async () => {
     const accessToken = sessionStorage.getItem("access_token");
     const did = localStorage.getItem("did");
     console.warn("Logging out\n", did);
     if (accessToken) {
-      await fetch(`${connectorURL}/auth/v1/logout`, {
+      await fetch(`/auth/v1/logout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -223,7 +235,7 @@ const Sidebar = ({ role, children }) => {
 
             {/* Navigation Links */}
             <div className="flex flex-col gap-3">
-              {navigationItems.filter(item => item.section !== 'footer').map((item) => {
+              {links.map((item) => {
                 const itemIsActive = isActive(item) || location.pathname === item.path;
                 
                 return (

@@ -11,9 +11,9 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import React, { useState, useEffect } from "react";
-import { SidebarConfig, SidebarNavigationItem } from '../types/sidebar-config';
+import type { SidebarConfig, SidebarNavigationItem } from '../types/sidebar-config';
 import { useNavigation } from '../hooks/useNavigation';
-import { sakuraConfig } from '../presets/sidebar-presets';
+import { sakuraConfig } from '../../presets/sidebar-presets';
 import NavigationItem from '../components/NavigationItem';
 
 interface SidebarProps {

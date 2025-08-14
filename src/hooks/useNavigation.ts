@@ -5,8 +5,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useRouter } from 'next/router';
-import { 
+// import { useRouter } from 'next/router';
+import type { 
   NavigationConfig, 
   SidebarNavigationConfig,
   NavigationItem, 
@@ -15,8 +15,7 @@ import {
   NavigationStrategy,
   NavigationOptions,
   PathMatchOptions,
-  NavigationErrorInfo,
-  NavigationContext
+  NavigationErrorInfo
 } from '../types/navigation';
 import { 
   detectNavigationStrategy,
@@ -71,7 +70,11 @@ export function useNavigation(
   // Next.js navigation (with error handling)
   const nextRouter = (() => {
     try {
-      return actualStrategy === 'next' ? useRouter() : null;
+      if (actualStrategy === 'next' && typeof window !== 'undefined' && (window as any).next?.router) {
+        // Only use Next.js router if it's actually available
+        return null; // For now, fallback to href navigation
+      }
+      return null;
     } catch {
       return null;
     }

@@ -3,7 +3,7 @@
  * Implements the routing solution from todo_routing_solution_20250812.md
  */
 
-import { NavigationConfig } from '../types/navigation';
+import type { NavigationConfig } from '../types/navigation';
 
 /**
  * Detects the available navigation strategy based on environment
@@ -57,21 +57,16 @@ export function buildUrlPath(path: string, baseUrl?: string): string {
 export function getEnvironmentBaseUrl(): string {
   if (typeof window === 'undefined') return '';
   
-  // Check for common environment variables patterns
-  if (typeof process !== 'undefined' && process.env) {
-    // Next.js environment variables
-    if (process.env.NEXT_PUBLIC_BASE_PATH) {
-      return process.env.NEXT_PUBLIC_BASE_PATH;
-    }
-    
-    // Generic base URL
-    if (process.env.PUBLIC_URL) {
-      return process.env.PUBLIC_URL;
+  // Check for Vite environment variables
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    // Vite base URL
+    if (import.meta.env.VITE_BASE_URL) {
+      return import.meta.env.VITE_BASE_URL;
     }
     
     // Development vs Production detection
-    if (process.env.NODE_ENV === 'production') {
-      return process.env.REACT_APP_BASE_URL || '';
+    if (import.meta.env.PROD) {
+      return import.meta.env.VITE_APP_BASE_URL || '';
     }
   }
   
@@ -159,8 +154,8 @@ export function isPathActive(currentPath: string, itemPath: string, baseUrl?: st
  * Development environment detection
  */
 export function isDevelopmentEnvironment(): boolean {
-  if (typeof process !== 'undefined' && process.env) {
-    return process.env.NODE_ENV === 'development';
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    return import.meta.env.DEV;
   }
   
   // Fallback check for development indicators
@@ -177,8 +172,8 @@ export function isDevelopmentEnvironment(): boolean {
  * Production environment detection
  */
 export function isProductionEnvironment(): boolean {
-  if (typeof process !== 'undefined' && process.env) {
-    return process.env.NODE_ENV === 'production';
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    return import.meta.env.PROD;
   }
   
   return !isDevelopmentEnvironment();

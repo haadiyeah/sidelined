@@ -5,7 +5,7 @@
 
 import React, { useState, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import { 
+import type { 
   NavigationItem as BaseNavigationItem,
   SidebarNavigationItem,
   NavigationConfig,

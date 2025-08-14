@@ -3,7 +3,7 @@
  * Implements the routing solution from todo_routing_solution_20250812.md
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 /**
  * Navigation strategies supported by the routing system

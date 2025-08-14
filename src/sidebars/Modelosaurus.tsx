@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import build from '../assets/images/sidebar-icons/build.png';
-import chip from '../assets/images/sidebar-icons/chip.png';
-import cloud from '../assets/images/sidebar-icons/cloud.png';
-import dashboard from '../assets/images/sidebar-icons/dashboard.png';
-import learn from '../assets/images/sidebar-icons/learn.png';
-import robot from '../assets/images/sidebar-icons/robot.png';
-import setting from '../assets/images/sidebar-icons/setting.png';
-import model from '../assets/images/sidebar-icons/model.png';
+import build from '../assets/modelosaurus-icons/build.png';
+import chip from '../assets/modelosaurus-icons/chip.png';
+import cloud from '../assets/modelosaurus-icons/cloud.png';
+import dashboard from '../assets/modelosaurus-icons/dashboard.png';
+import learn from '../assets/modelosaurus-icons/learn.png';
+import robot from '../assets/modelosaurus-icons/robot.png';
+import setting from '../assets/modelosaurus-icons/setting.png';
+import model from '../assets/modelosaurus-icons/model.png';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ import { useNavigate } from 'react-router-dom';
 */
 
 
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 
 // Create the context
 const IndicatorPositionContext = createContext();

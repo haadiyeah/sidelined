@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SidebarConfig, SidebarNavigationItem } from '../types/sidebar-config';
+import type { SidebarConfig, SidebarNavigationItem } from '../types/sidebar-config';
 import { useNavigation } from '../hooks/useNavigation';
 import NavigationItem from './NavigationItem';
 
